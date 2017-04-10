@@ -256,3 +256,8 @@ img {
 .b_b a:hover{
 	color: #f60;
 }
+.f_window{
+	position: fixed;
+	right: 18%;
+	top: 60%;
+}
