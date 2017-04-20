@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="{dede:global.cfg_soft_lang/}">
+<meta name="description" content="{dede:field name='description'/}" />
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<title>最新100篇文章 - 站长资讯网</title>
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_indexurl/}style/css/base.css">
+<style type="text/css">
+/*最新100篇文章*/
+.latest li{ margin-left:2em; font-size:14px; color:#666; list-style-type:decimal; border-bottom:1px solid #eee;}
+.latest li a{ display:block; padding:8px; color:#444;}
+.latest li a:hover{ color:#245DC1; text-decoration:underline;}
+.latest span{ display:block; float:right; padding:8px; font-size:12px; color:#999; }
+</style>
+</head>
+
+<body>
+<div id="header">
+  <div id="logo"><h1><a href="{dede:global.cfg_indexurl/}" title="返回站长资讯网首页">{dede:global.cfg_webname/}</a></h1></div>
+  <div id="tool"></div>
+</div>
+
+<div id="nav">
+  <ul>
+	<li><a class="menu" href="{dede:global.cfg_indexurl/}">{dede:global.cfg_indexname/}</a></li>
+    <li><a class="menu cur"  href="{dede:global.cfg_indexurl/}latest.html">最新文章</a></li>
+    {dede:channelartlist typeid='1,1'}
+	<li>
+	  <div class="dropdown"><a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a>
+	  <ul>{dede:channel type='son' noself='yes'}<li><a href="[field:typelink/]">[field:typename/]</a></li>{/dede:channel}</ul>
+	  </div>
+	</li>{/dede:channelartlist}
+    {dede:channelartlist typeid='17,17'}
+	<li><a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a></li>
+    {/dede:channelartlist}
+    {dede:channelartlist typeid='9,9'}
+	<li><a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a></li>
+    {/dede:channelartlist}
+    {dede:channelartlist typeid='11,11'}
+	<li>
+	  <div class="dropdown"><a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a>
+	  <ul>{dede:channel type='son' noself='yes'}<li><a href="[field:typelink/]">[field:typename/]</a></li>{/dede:channel}</ul>
+	  </div>
+	</li>{/dede:channelartlist}
+</ul>
+</div>
+
+<div class="area">
+  <div class="main">
+  	<div class="breadcrumb">最新的100篇文章</div>
+  	<div class="end">
+    {dede:field name='body'/}
+    </div>
+  </div>
+  <div class="side">
+  	<!--搜索框开始-->
+  	<div class="search">
+        <div id="search">
+        <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <input type="hidden" name="kwtype" value="0" />
+        <span class="souIn"><input name="q" id="search-keyword" type="text" maxlength="36"  value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在这里搜索...';}" class="souTxt" /></span>
+        <span class="souOut"><input type="submit" class="souBtn" value="" /></span>
+        </form>
+        </div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门搜索开始-->
+    <div class="box">
+    	<h3>热门搜索</h3>
+        <div class="text label">{dede:hotwords num='10' maxlength='32' /}</div>
+    </div>
+    <!--热门搜索结束-->
+    <!--热门标签开始-->
+    <div class="box">
+    	<h3>热门标签</h3>
+        <div class="text label">{dede:tag row='30' sort='new' getall='1'}<a href="[field:link/]">[field:tag /]</a>{/dede:tag}</div>
+    </div>
+    <!--热门标签结束-->
+  </div>
+</div>
+
+{dede:include filename="footer.htm"/}
+<div id="go-top"><a href="#header" title="返回顶部">返回顶部</a></div>
+<script src="{dede:global.cfg_indexurl/}style/js/jquery-1.10.2.min.js"></script>
+<script src="{dede:global.cfg_indexurl/}style/js/a.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="{dede:global.cfg_soft_lang/}">
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_indexurl/}style/css/base.css">
+</head>
+
+<body>
+{dede:include filename="head3.htm"/}
+<div class="area">
+  <div class="main">
+  	<div class="breadcrumb cGrad">{dede:field name='position'/}</div>
+    <div class="explanation clearfix">{dede:field.content/}</div>
+  	<div class="nlist">
+    {dede:list pagesize='15'}
+      <dl>
+        <dt><a href="[field:arcurl/]" title="[field:fulltitle /]"><img src="[field:picname /]" alt="[field:fulltitle /]" /></a></dt>
+        <dd><h3><a href="[field:arcurl /]">[field:title /]</a></h3></dd>
+        <dd class="byline"><span class="left">[field:pubdate function="MyDate('Y/m/d',@me)"/]</span><span class="right">[field:scores/]</span></dd>
+      </dl>
+      {/dede:list}
+    </div>
+    <div class="ep-pages">{dede:pagelist listitem="index,end,pre,next,pageno" listsize="9"/}</div>
+  </div>
+  <div class="side">
+  	<!--搜索框开始-->
+  	<div class="search">
+        <div id="search">
+        <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <input type="hidden" name="kwtype" value="0" />
+        <span class="souIn"><input name="q" id="search-keyword" type="text" maxlength="36"  value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在这里搜索...';}" class="souTxt" /></span>
+        <span class="souOut"><input type="submit" class="souBtn" value="" /></span>
+        </form>
+        </div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门关键词开始-->
+    <div class="box">
+    	<h3>热门搜索</h3>
+        <div class="text label">{dede:hotwords num='10' maxlength='32' /}</div>
+    </div>
+    <!--热门关键词结束-->
+    <!--本周热门开始-->
+    <div class="box">
+    	<h3>本周热门</h3>
+        <div class="text">
+        	<ul class="list rank">
+            	{dede:arclist row='9' orderby='hot'}<li><a href="[field:arcurl/]">[field:fulltitle/]</a></li>{/dede:arclist}
+            </ul>
+        </div>
+    </div>
+    <!--本周热门结束-->  
+  </div>
+</div>
+{dede:include filename="footer.htm"/}
+<script src="{dede:global.cfg_indexurl/}style/js/jquery-1.10.2.min.js"></script>
+<script src="{dede:global.cfg_indexurl/}style/js/a.js"></script>
+</body>
+</html>

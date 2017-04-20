@@ -1,0 +1,29 @@
+<div id="header">
+	<div id="logo"><a href="{dede:global.cfg_indexurl/}" title="返回站长资讯网首页">{dede:global.cfg_webname/}</a></div>
+    <div id="tool"></div>
+</div>
+
+<div id="nav">
+  <ul>
+	<li id="home"><a href="{dede:global.cfg_indexurl/}" class="menu">{dede:global.cfg_indexname/}</a></li>
+    <li><a href="{dede:global.cfg_indexurl/}latest.html" class="menu">最新文章</a></li>
+    {dede:channelartlist typeid='1,1'}
+	<li>
+	  <div class="dropdown"><a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a>
+	  <ul>{dede:channel type='son' noself='yes'}<li><a href="[field:typelink/]">[field:typename/]</a></li>{/dede:channel}</ul>
+	  </div>
+	</li>{/dede:channelartlist}
+    {dede:channelartlist typeid='17,17'}
+	<li><a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a></li>
+    {/dede:channelartlist}
+    {dede:channelartlist typeid='9,9'}
+	<li><a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a></li>
+    {/dede:channelartlist}
+    {dede:channelartlist typeid='11,11'}
+	<li>
+	  <div class="dropdown"><a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a>
+	  <ul>{dede:channel type='son' noself='yes'}<li><a href="[field:typelink/]">[field:typename/]</a></li>{/dede:channel}</ul>
+	  </div>
+	</li>{/dede:channelartlist}
+</ul>
+</div>

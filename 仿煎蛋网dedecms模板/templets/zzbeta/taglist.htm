@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="{dede:global.cfg_soft_lang/}">
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_indexurl/}style/css/base.css">
+</head>
+
+<body>
+{dede:include filename="head3.htm"/}
+
+<div class="area">
+  <div class="main">
+  	<div class="breadcrumb cBlack"><a href="{dede:global.cfg_cmsurl/}/">主页</a> > <a href="tags.php">标签</a> > {dede:field.title /}</div>
+    <!--标签内容开始-->
+  	<div class="nlist">
+  	{dede:list orderby='sortrank' pagesize='10'}
+      <dl>
+        <dt>[field:array runphp='yes']@me = (empty(@me['litpic']) ? "" : "<a href='{@me['arcurl']}' class='preview'><img src='{@me['litpic']}'/></a>"); [/field:array]</dt>
+        <dd><h3><a href="[field:arcurl /]" title="[field:fulltitle /]" target="_blank">[field:title /]</a></h3></dd>
+        <dd class="byline"><span class="left">[field:pubdate function="MyDate('Y/m/d',@me)"/]</span><span class="right"><a href="[field:typeurl/]" target="_blank">[field:typename/]</a></span></dd>
+      </dl>{/dede:list}
+	</div>
+    <!--标签内容结束-->
+    <div class="ep-pages">{dede:pagelist listitem="index,end,pre,next,pageno" listsize="9"/}</div>
+  </div>
+  <div class="side">
+  	<!--搜索框开始-->
+  	<div class="search">
+        <div id="search">
+        <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <input type="hidden" name="kwtype" value="0" />
+        <span class="souIn"><input name="q" id="search-keyword" type="text" maxlength="36"  value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在这里搜索...';}" class="souTxt" /></span>
+        <span class="souOut"><input type="submit" class="souBtn" value="" /></span>
+        </form>
+        </div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门关键词开始-->
+    <div class="box">
+    	<h3>热门搜索</h3>
+        <div class="text label">{dede:hotwords num='10' maxlength='32' /}</div>
+    </div>
+    <!--热门关键词结束-->
+  </div>
+</div>
+
+{dede:include filename="footer.htm"/}
+<script src="{dede:global.cfg_indexurl/}style/js/jquery-1.10.2.min.js"></script>
+<script src="{dede:global.cfg_indexurl/}style/js/a.js"></script>
+</body>
+</html>

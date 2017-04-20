@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="{dede:global.cfg_soft_lang/}">
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<meta name="keywords" content="{dede:field.keywords/}" />
+<title>{dede:field.title/} - {dede:field name='position' runphp='yes'}
+ $tc=" - "; //分隔符
+ $tw=$GLOBALS['cfg_list_symbol']; //调用位置分隔符
+   @me=html2text(@me); //去除html标签
+ $tf=split($tw,@me); //分解成数组
+   for($ta=(count($tf)-2);$ta>=1;$ta--){ //循环赋值给$tk
+ $tk.=trim($tf[$ta]).$tc;
+    }
+ $tk=substr($tk,0,-1);
+ @me=$tk; //赋值给@me
+ {/dede:field} {dede:global.cfg_webname/}</title>
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_indexurl/}style/css/base.css">
+</head>
+
+<body>
+{dede:include filename="head3.htm"/}
+<div class="area">
+  <div class="main">
+  	<div class="breadcrumb cBlack">{dede:field name='position' runphp='yes'} $a=mb_strlen(@me); @me=cn_substr(@me,$a-2,-1); {/dede:field}</div>
+    <div class="end">
+      <h1>{dede:field.title/}</h1>
+        <dl id="star" class="clearfix">
+            <dt><img src="{dede:field.picname/}" alt="{dede:field.name/}个人照片" title="{dede:field.name/}个人照片" /></dt>
+            <dd><span>大号：</span>{dede:field.name/}</dd>
+            <dd><span>性别：</span>{dede:field.sex/}</dd>
+            <dd><span>生辰：</span>{dede:field.birthday/}</dd>
+            <dd><span>老家：</span>{dede:field.home/}</dd>
+            <dd><span>职业：</span>{dede:field.profession/}</dd>
+            <dd><span>微博：<a href="http://{dede:field.weibo/}" target="_blank">{dede:field.weibo/}</a></span></dd>
+            <dd><span>ＱＱ：</span>{dede:field.qq/}</dd>
+        </dl>
+        <div id="endText">
+        {dede:field.body/}
+        </div><!--End endText-->
+      	<div class="pagebreak clearfix">{dede:prenext get='pre'/}{dede:prenext get='next'/}</div>
+<!--相关文章开始-->
+<div class="related clearfix">
+    <div class="clearfix"><h3 class="left">关键词阅读：</h3><span class="left tags">{dede:tag sort='new' getall='0'}<a href="[field:link/]">[field:tag /]</a>{/dede:tag}</span></div>
+    <ul class="clearfix cBlack">{dede:arclist row='4'}<li><a href="[field:arcurl/]" title="[field:fulltitle/]"><img src="[field:picname/]" alt="[field:shorttitle/]图片" /><span>[field:fulltitle/]</span></a></li>{/dede:arclist}</ul>
+</div>
+<!--相关文章结束-->
+        <div id="duoshuo">{dede:duoshuo/}</div>
+    </div><!--End End-->
+  </div><!--End Main-->
+  
+  <div class="side">
+  	<!--搜索框开始-->
+  	<div class="search">
+        <div id="search">
+        <form  name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+        <input type="hidden" name="kwtype" value="0" />
+        <span class="souIn"><input name="q" id="search-keyword" type="text" maxlength="36"  value="在这里搜索..." onfocus="if(this.value=='在这里搜索...'){this.value='';}"  onblur="if(this.value==''){this.value='在这里搜索...';}" class="souTxt" /></span>
+        <span class="souOut"><input type="submit" class="souBtn" value="" /></span>
+        </form>
+        </div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门关键词开始-->
+    <div class="box">
+    	<h3>热门搜索</h3>
+        <div class="text label">{dede:hotwords num='10' maxlength='32' /}</div>
+    </div>
+    <!--热门关键词结束-->
+    <!--本周热门开始-->
+    <div class="box">
+    	<h3>本周热门</h3>
+        <div class="text">
+        	<ul class="list rank">
+            	{dede:arclist row='9' orderby='hot'}<li><a href="[field:arcurl/]">[field:fulltitle/]</a></li>{/dede:arclist}
+            </ul>
+        </div>
+    </div>
+    <!--本周热门结束-->
+  </div><!--End Side-->
+</div><!--End Area-->
+{dede:include filename="footer.htm"/}
+<div id="go-top"><a href="#header" title="返回顶部">返回顶部</a></div>
+<script src="{dede:global.cfg_indexurl/}style/js/jquery-1.10.2.min.js"></script>
+<script src="{dede:global.cfg_indexurl/}style/js/a.js"></script>
+</body>
+</html>

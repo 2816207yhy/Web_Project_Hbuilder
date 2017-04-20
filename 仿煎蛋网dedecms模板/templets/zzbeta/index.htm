@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="{dede:global.cfg_soft_lang/}">
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta property="qc:admins" content="376711277762225416375" />
+		<title>վ����Ѷ��, Ϊվ������, �ṩ��ҳ��Ч, js����, pngͼƬ, jquery, css3, html5������</title>
+		<link rel="stylesheet" type="text/css" href="{dede:global.cfg_indexurl/}style/css/base.css">
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="logo">
+				<h1><a href="{dede:global.cfg_indexurl/}" title="����վ����Ѷ����ҳ">{dede:global.cfg_webname/}</a></h1></div>
+			<div id="tool">
+				<div>
+					<a href="/qqLogin/index.php"><img src="images/qq_login.png"></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="nav">
+			<ul>
+				<li>
+					<a class="menu" href="{dede:global.cfg_indexurl/}">{dede:global.cfg_indexname/}</a>
+				</li>
+				<li>
+					<a class="menu" href="{dede:global.cfg_indexurl/}latest.html">��������</a>
+				</li>
+				{dede:channelartlist typeid='1,1'}
+				<li>
+					<div class="dropdown">
+						<a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a>
+						<ul>{dede:channel type='son' noself='yes'}
+							<li>
+								<a href="[field:typelink/]">[field:typename/]</a>
+							</li>{/dede:channel}</ul>
+					</div>
+				</li>{/dede:channelartlist} {dede:channelartlist typeid='17,17'}
+				<li>
+					<a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a>
+				</li>
+				{/dede:channelartlist} {dede:channelartlist typeid='9,9'}
+				<li>
+					<a href="{dede:field name='typeurl'/}" class="menu">{dede:field name='typename'/}</a>
+				</li>
+				{/dede:channelartlist} {dede:channelartlist typeid='11,11'}
+				<li>
+					<div class="dropdown">
+						<a href="{dede:field name='typeurl'/}" class="menu {dede:field name='currentstyle'/}">{dede:field name='typename'/}</a>
+						<ul>{dede:channel type='son' noself='yes'}
+							<li>
+								<a href="[field:typelink/]">[field:typename/]</a>
+							</li>{/dede:channel}</ul>
+					</div>
+				</li>{/dede:channelartlist}
+			</ul>
+		</div>
+
+		<div class="area">
+			<div class="main">
+				<div class="breadcrumb">
+					<script type="text/javascript" src="{dede:global.cfg_indexurl/}html/motto/motto.js"></script>
+				</div>
+				{dede:arclist row='20' titlelen='44' infolen='150' orderby='id'}
+				<div class="media">
+					[field:array runphp='yes'] @me = (strpos(@me['litpic'],'defaultpic') ? "" : "
+					<a href=\ "{@me['arcurl']}\"><img src=\ "{@me['litpic']}\" alt=\ "{@me['title']}\" /></a>"); [/field:array]
+					<h2><a href="[field:arcurl/]">[field:title/]</a></h2>
+					<div class="byline">
+						<a href="[field:typeurl/]" class="cGrad">[field:typename/]</a> , [field:pubdate function="tranTime(@me)" /]</div>
+					<p>[field:info/]...</p>
+				</div>
+				{/dede:arclist}
+			</div>
+			<!--End Main-->
+			<div class="side">
+				<!--������ʼ-->
+				<div class="search">
+					<div id="search">
+						<form name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php">
+							<input type="hidden" name="kwtype" value="0" />
+							<span class="souIn"><input name="q" id="search-keyword" type="text" maxlength="36"  value="����������..." onfocus="if(this.value=='����������...'){this.value='';}"  onblur="if(this.value==''){this.value='����������...';}" class="souTxt" /></span>
+							<span class="souOut"><input type="submit" class="souBtn" value="" /></span>
+						</form>
+					</div>
+				</div>
+				<!--���������-->
+				<!--���ű�ǩ��ʼ-->
+				<div class="box">
+					<h3>���ű�ǩ</h3>
+					<div class="text label">{dede:tag row='30' sort='new' getall='1'}
+						<a href="[field:link/]">[field:tag /]</a>{/dede:tag}</div>
+				</div>
+				<!--���ű�ǩ����-->
+				<!--�������ſ�ʼ-->
+				<div class="box">
+					<h3>��������</h3>
+					<div class="text">
+						<ul class="list rank">
+							{dede:arclist row='9' orderby='hot'}
+							<li>
+								<a href="[field:arcurl/]" title="[field:fulltitle/]"> [field:fulltitle /]</a>
+							</li>{/dede:arclist}
+						</ul>
+					</div>
+				</div>
+				<!--�������Ž���-->
+				<!--�������ۿ�ʼ-->
+				<div class="box">
+					<h3>վ���Ƽ�</h3>
+					<div class="text">
+						<ul class="list rank">
+							{dede:arclist row='9' flag='c'}
+							<li>
+								<a href="[field:arcurl/]" title="[field:fulltitle/]">[field:fulltitle/]</a>
+							</li>{/dede:arclist}
+						</ul>
+					</div>
+				</div>
+				<!--�������۽���-->
+			</div>
+			<!--End Side-->
+		</div>
+		<!--End Area-->
+
+		{dede:include filename="footer.htm"/}
+		<div id="go-top">
+			<a href="#header" title="���ض���">���ض���</a>
+		</div>
+		<script src="{dede:global.cfg_indexurl/}style/js/jquery-1.10.2.min.js"></script>
+		<script src="{dede:global.cfg_indexurl/}style/js/a.js"></script>
+	</body>
+
+</html>
