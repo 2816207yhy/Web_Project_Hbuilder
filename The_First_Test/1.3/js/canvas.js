@@ -11,6 +11,7 @@ function draw131(id) {
     context.strokeRect(100, 100, 180, 120);
 
 }
+
 function draw132(id) {
     var canvas = document.getElementById(id);
     var context = canvas.getContext('2d');
