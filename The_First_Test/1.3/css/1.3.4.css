@@ -1,0 +1,16 @@
+label{
+	float: left;
+	
+	align-content: center;
+	
+}
+textarea{
+	float: left;
+	text-align: center;
+	align-self: center;
+}
+
+table{
+	border: solid 1px red; 
+	
+}
