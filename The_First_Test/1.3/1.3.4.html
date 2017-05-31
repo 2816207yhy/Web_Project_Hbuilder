@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网页存储测试</title>
+		<script type="text/javascript" src="js/index.js"></script>
+
+	</head>
+
+	<body>
+		<label for="key">索引</label>
+		<textarea id="key" rows="1" cols="10"></textarea>
+		<br />
+		<label for="ctt">内容</label>
+		<textarea id="ctt" rows="1" cols="10"></textarea>
+		<br />
+		<input type="button" value="保存" onclick="savestorage134('key','ctt')" />
+		<input type="button" value="读取" onclick="loadstorage134('msg')" />
+		<input type="button" value="清空" onclick="clearstorage134()" />
+
+		<hr />
+		<label for="f_ctt">查找</label>
+		<textarea id="f_ctt" rows="1" cols="10"></textarea>
+		<input type="button" value="查找" onclick="findstorage134('f_ctt','f_r_ctt')" />
+		<p id="f_r_ctt"></p>
+		<hr />
+		<div id="msg"></div>
+	</body>
+
+</html>
