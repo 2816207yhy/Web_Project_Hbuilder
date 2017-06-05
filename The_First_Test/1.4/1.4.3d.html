@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+		</title>
+			<input type="button" id="btn1" value="test" />
+			<br>
+				<a href="www.weibo.com" id='blog'>微博</a>
+				
+			<script type="text/javascript">
+				var btn1 = document.getElementById("btn1");
+				var handler = function(e){
+					switch (e.type){
+						case 'click':
+						alert('clicked!!')
+							break;
+						case 'mouseover':
+						event.target.style.backgroundColor='red';
+							break;
+						case 'mouseout':
+						event.target.style.backgroundColor='';
+							break;
+						
+					}
+					
+				};
+				btn1.onclick=handler;
+				btn1.onmouseover=handler;
+				btn1.onmouseout=handler;
+				
+				var blog =  document.getElementById("blog");
+				blog.onclick=function  (e) {
+					alert(e.cancelable);
+					e.preventDefault();
+				}
+				
+				
+				
+			</script>
+		
+	</head>
+	<body>
+	</body>
+</html>
+

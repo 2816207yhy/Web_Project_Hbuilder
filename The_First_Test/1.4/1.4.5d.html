@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-1.6.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Validform_Datatype.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/Validform_v5.3.2_min.js" type="text/javascript" charset="utf-8"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<h1>表单验证</h1>
+
+		<form class="demoform">
+			用户名： <input type="text" id="username" value="" />
+			<span class="hint">  
+		   		输入你的用户名，请以英文字母开头。
+	  		 </span>
+			<input type="password" id="password" value="" datatype="s6-15"/>
+		</form>
+
+		<script>
+			$(function() {
+
+				$(".demoform").Validform({
+					tiptype: function(msg, o, cssctl) {
+
+						if(!o.obj.is("form")) {
+							var objtip = o.obj.siblings(".Validform_checktip");
+							cssctl(objtip, o.type);
+							objtip.text(msg);
+						} else {
+							var objtip = o.obj.find("#dump");
+							cssctl(objtip, o.type);
+							objtip.text(msg);
+						}
+
+					},
+					ajaxPost: true
+				});
+
+			})
+		</script>
+
+	</body>
+
+</html>

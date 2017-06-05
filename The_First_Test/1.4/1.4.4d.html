@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<body>
+		<input type="button" id="btn" value="test" />
+		<br />
+		<a href="1.4.1.html" id="link">tiaozhuan</a>
+		<script type="text/javascript">
+			var btn = document.getElementById("btn");
+			//			btn.onclick=function  (e) {
+			//				alert(e.eventPhase);
+			//			}
+			//			
+			//			document.body.addEventListener('click',function  (e) {
+			//				alert(e.eventPhase);
+			//			},false);
+
+			btn.onclick = function() {
+				alert(window.event.srcElement === this);
+			};
+			var link= document.getElementById("link")
+			link.onclick=function  () {
+				window.event.returnValue=false; 
+			}
+			
+		</script>
+	</body>
+
+</html>
