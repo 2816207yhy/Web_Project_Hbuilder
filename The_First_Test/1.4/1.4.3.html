@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			res = /[a-zA-Z0-9]/.test('132');
+			res = /[\W]/.test('132');
+			res = /[\bg]/.test('132');
+			res = /is/i.exec('this is a test');
+//			console.log(res[0]);
+			str='2015-02-02';
+			res=str.replace(/(\d{4})-(\d{2})-(\d{2})/,'$2/$3/$1');
+//			console.log(res)
+			str='helle Yhy first Test';
+			res=str.replace(/[A-Z]/g,function1)
+			function function1 (match) {
+			return 'king_'+match.toLowerCase();	
+			}
+			console.log(res);
+			res=str.split(/\s/);
+			console.log(res);
+			document.all[2]
+			
+			
+		</script>
+	</body>
+</html>
